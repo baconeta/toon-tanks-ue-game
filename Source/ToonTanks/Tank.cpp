@@ -26,8 +26,8 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void ATank::Move(float Value) 
 {
     float DeltaTime = UGameplayStatics::GetWorldDeltaSeconds(this);
-    
+
     FVector DeltaLocation = FVector::ZeroVector;
     DeltaLocation.X = MovementSpeed * Value * DeltaTime;
-    AddActorLocalOffset(DeltaLocation);
+    AddActorLocalOffset(DeltaLocation, true);
 }
