@@ -4,6 +4,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/InputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ATank::ATank() 
@@ -24,9 +25,9 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void ATank::Move(float Value) 
 {
+    float DeltaTime = UGameplayStatics::GetWorldDeltaSeconds(this);
+    
     FVector DeltaLocation = FVector::ZeroVector;
-    DeltaLocation.X = MovementSpeed * Value;
+    DeltaLocation.X = MovementSpeed * Value * DeltaTime;
     AddActorLocalOffset(DeltaLocation);
-    // Logging for dev and debugging.
-    // UE_LOG(LogTemp, Warning, TEXT("Value: %f."), Value);
 }
