@@ -15,7 +15,7 @@ class TOONTANKS_API ATank : public ABasePawn
 	GENERATED_BODY()
 	
 public:
-	void ATank();
+	ATank();
 
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"), Category = "Camera Components")
