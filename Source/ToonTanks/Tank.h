@@ -26,8 +26,12 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"), Category = "Components")
 	class UCameraComponent* CameraComp = nullptr;
 
-	UPROPERTY(EditAnywhere, Category = "Gameplay Mechanics")
+	UPROPERTY(EditAnywhere, Category = "Movement Mechanics")
 	float MovementSpeed = 300.f;
 
+	UPROPERTY(EditAnywhere, Category = "Movement Mechanics")
+	float TurnSpeed = 100.f;
+
 	void Move(float Value);
+	void Turn(float Value);
 };
