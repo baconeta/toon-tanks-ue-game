@@ -1,7 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Components/CapsuleComponent.h"
 #include "BasePawn.h"
+#include "Components/CapsuleComponent.h"
+#include "DrawDebugHelpers.h" // Debugging only
 
 // Sets default values
 ABasePawn::ABasePawn()
@@ -28,5 +29,10 @@ void ABasePawn::RotateTurret(FVector LookAtTarget)
 	FRotator LookAtRotation(0.f, ToTarget.Rotation().Yaw, 0.f);
 
 	TurretMesh->SetWorldRotation(LookAtRotation);
+}
+
+void ABasePawn::Fire()
+{
+	DrawDebugSphere(GetWorld(), ProjectileSpawnPoint->GetComponentLocation(), 10, 100, FColor::Red, true, 100.f);
 }
 
