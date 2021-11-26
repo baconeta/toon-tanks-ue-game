@@ -39,3 +39,7 @@ void ABasePawn::Fire()
 	Projectile->SetOwner(this);
 }
 
+void ABasePawn::HandleDestruction()
+{
+	// TODO: Handle all visual and sound effects to do with pawn death
+}

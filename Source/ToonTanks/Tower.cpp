@@ -45,3 +45,9 @@ bool ATower::IsTankClose()
     }
     return false;
 }
+
+void ATower::HandleDestruction()
+{
+    Super::HandleDestruction();
+    Destroy();
+}
