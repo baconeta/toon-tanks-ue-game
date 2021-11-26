@@ -30,9 +30,6 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	class UProjectileMovementComponent* ProjectileMovementComp = nullptr;
 
-	UPROPERTY(VisibleAnywhere, Category = "Combat")
-	float InitialSpeed = 100.f;
-
-	UPROPERTY(VisibleAnywhere, Category = "Combat")
-	float MaxSpeed = 500.f;
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 };
