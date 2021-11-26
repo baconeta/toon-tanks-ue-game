@@ -31,4 +31,5 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	float FireRate = 2.f;
 	void CheckFireCondition();
+	bool IsTankClose();
 };
