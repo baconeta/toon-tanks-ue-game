@@ -24,6 +24,15 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"), Category = "Components")
-	class UCapsuleComponent* ProjectileComp = nullptr;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"), Category = "Components")
+	class UStaticMeshComponent* ProjectileMesh = nullptr;
+
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	class UProjectileMovementComponent* ProjectileMovementComp = nullptr;
+
+	UPROPERTY(VisibleAnywhere, Category = "Combat")
+	float InitialSpeed = 100.f;
+
+	UPROPERTY(VisibleAnywhere, Category = "Combat")
+	float MaxSpeed = 500.f;
 };
