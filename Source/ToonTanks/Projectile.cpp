@@ -3,6 +3,7 @@
 #include "Projectile.h"
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/DamageType.h"
+#include "GameFramework/PlayerController.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Particles/ParticleSystemComponent.h"
@@ -44,12 +45,7 @@ void AProjectile::Tick(float DeltaTime)
 }
 
 void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
-{
-	if (HitSound)
-	{
-		UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation());
-	}
-	
+{	
 	auto MyOwner = GetOwner();
 	if (MyOwner == nullptr) 
 	{
@@ -67,6 +63,15 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimi
 		{
 			UGameplayStatics::SpawnEmitterAtLocation(this, HitParticles, GetActorLocation(), GetActorRotation());
 		}
+		if (HitSound)
+		{
+			UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation());
+		}
+		if (HitCameraShakeClass)
+		{
+			GetWorld()->GetFirstPlayerController()->ClientStartCameraShake(HitCameraShakeClass);
+		}
+		
 	}
 	Destroy();
 }
