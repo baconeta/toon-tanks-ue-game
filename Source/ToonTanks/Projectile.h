@@ -41,4 +41,10 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	class UParticleSystemComponent* FlightParticles;
+
+	UPROPERTY(EditAnywhere, Category = "Audio")
+	class USoundBase* LaunchSound;
+
+	UPROPERTY(EditAnywhere, Category = "Audio")
+	USoundBase* HitSound;
 };
