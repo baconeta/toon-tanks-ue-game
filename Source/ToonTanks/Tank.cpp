@@ -3,7 +3,7 @@
 #include "Tank.h"
 #include "Camera/CameraComponent.h"
 #include "Components/InputComponent.h"
-#include "DrawDebugHelpers.h" // Debugging only
+#include "DrawDebugHelpers.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -36,8 +36,6 @@ void ATank::Tick(float DeltaTime)
         FHitResult HitResult;
         TankPlayerController->GetHitResultUnderCursor(ECollisionChannel::ECC_Visibility, false, HitResult);
 
-        // Debugging only
-        // DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 10, 100, FColor::Red);
         RotateTurret(HitResult.ImpactPoint);
     }
     
